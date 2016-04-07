@@ -3,8 +3,14 @@ MAINTAINER khoaln
 
 ## Install php nginx mysql supervisor xserver wget
 RUN apt-get update && \
-    apt-get install -y apt-utils python python-dev python-pip build-essential xvfb xserver-xephyr vnc4server python-pil scrot wget unzip && \
+    apt-get install -y apt-utils python python-dev python-pip build-essential nginx xvfb xserver-xephyr vnc4server python-pil scrot wget unzip && \
     rm -rf /var/lib/apt/lists/*
+
+## Install uWSGI
+RUN pip install uwsgi
+
+## Install django
+RUN pip install Django==1.9.2
 
 ## Install pyvirtualdisplay
 RUN pip install pyvirtualdisplay
